@@ -1,0 +1,29 @@
+# Gemma 3 GRPO Fine-Tuning Configuration
+
+model:
+  name: "google/gemma-3-1b-it"
+
+training:
+  learning_rate: 0.00001
+  epochs: 1
+  batch_size: 1
+  gradient_accumulation_steps: 4
+
+generation:
+  max_prompt_length: 256
+  max_completion_length: 256
+
+lora:
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+
+optimization:
+  gradient_checkpointing: true
+  mixed_precision: true
+
+reproducibility:
+  seed: 42
+
+output:
+  directory: "./outputs"
